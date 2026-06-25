@@ -1,0 +1,22 @@
+{
+  "name": "giveaway-bot",
+  "version": "1.0.0",
+  "description": "بوت قيف أواي عام للديسكورد يشتغل في كل السيرفرات",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node start.js",
+    "start:hadiya": "node index.js",
+    "deploy": "node src/deploy-commands.js",
+    "deploy:system": "node system/deploy-commands.js",
+    "deploy:all": "node src/deploy-commands.js && node system/deploy-commands.js"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "^1.0.1",
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.5"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
