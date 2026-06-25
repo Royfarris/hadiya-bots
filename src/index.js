@@ -18,11 +18,12 @@ import { parseDuration } from './utils.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const token = process.env.DISCORD_TOKEN;
+const token = process.env.DISCORD_TOKEN?.trim();
 if (!token) {
   console.error('❌ ما فيه DISCORD_TOKEN في ملف .env');
   process.exit(1);
 }
+console.log(`[Hadiya] طول التوكن: ${token.length} (المفروض 70-75)`);
 
 const client = new Client({
   intents: [GatewayIntentBits.Guilds],

@@ -14,12 +14,13 @@ import { handlePrefix } from './prefix.js';
 import { handleLevelMessage } from './leveling.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const token = process.env.SYSTEM_TOKEN;
+const token = process.env.SYSTEM_TOKEN?.trim();
 
 // لو ما فيه توكن، نتخطّى هذا البوت بدون ما نوقف الباقي
 if (!token) {
   console.warn('⚠️ بوت System: ما فيه SYSTEM_TOKEN في .env — تم تخطّيه.');
 } else {
+  console.log(`[System] طول التوكن: ${token.length} (المفروض 70-75)`);
   const client = new Client({
     intents: [
       GatewayIntentBits.Guilds,
