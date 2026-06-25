@@ -20,7 +20,10 @@ const token = process.env.SYSTEM_TOKEN?.trim();
 if (!token) {
   console.warn('⚠️ بوت System: ما فيه SYSTEM_TOKEN في .env — تم تخطّيه.');
 } else {
-  console.log(`[System] طول التوكن: ${token.length} (المفروض 70-75)`);
+  const { createHash } = await import('node:crypto');
+  console.log(
+    `[System] طول التوكن: ${token.length} | بصمة: ${createHash('sha256').update(token).digest('hex').slice(0, 10)}`,
+  );
   const client = new Client({
     intents: [
       GatewayIntentBits.Guilds,
